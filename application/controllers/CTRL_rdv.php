@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CTRL_achat extends CI_Controller {
+class CTRL_rdv extends CI_Controller {
 
 
     public function __construct() {

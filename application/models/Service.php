@@ -34,8 +34,21 @@ class Service extends CI_Model {
     }
 
     public function get_all_services() {
-        $query = $this->db->get('service');
-        return $query->result();
+		$query = $this->db->get('service');
+		$result = $query->result();
+	
+		// Initialiser un tableau pour stocker les résultats
+		$services = [];
+	
+		// Boucle pour remplir le tableau avec les résultats
+		foreach ($result as $row) {
+			$services[] = [
+				'id_service' => $row->id_service,
+				'nom_service' => $row->nom_service
+			];
+		}
+	
+		return $services;
     }
 
     public function update_service($id_service, $nom_service, $durre, $prix_service) {

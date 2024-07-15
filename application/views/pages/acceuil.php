@@ -115,19 +115,20 @@
                                     <h5 class="mb-0">Donner rendez-vous</h5>
                                 </div>
                                 <div class="card-body">
-                                    <form method="" action="">
+                                    <form method="post" action="<?php echo base_url("") ?>">
                                         <div class="mb-3">
                                             <label for="slot" class="form-label">SLOT</label>
-                                            <select name="" id="slot" class="form-select" required>
-                                                <option value="">A</option>
-                                                <option value="">B</option>
+                                            <select name="_d_slot" id="slot" class="form-select" required>
+												<?php foreach ($slots as $slot) { ?>
+												<option value="<?php echo $slot["id_slot"] ?>"><?php echo $slot["nom_slot"] ?></option>
+												<?php } ?>
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="" class="form-label">Services</label>
-                                            <select name="service" id="" class="form-select" required>
+                                            <select name="id_service" id="" class="form-select" required>
 												<?php for ($i=0; $i < count ($services); $i++) { ?>
-												<option value="<?php echo $services[$i]["id_service"] ?>"><?php echo "seee" ?></option>
+												<option value="<?php echo $services[$i]["id_service"] ?>"><?php echo $services[$i]["nom_service"] ?></option>
 												<?php } ?>
                                             </select>
                                         </div>

@@ -7,6 +7,7 @@ class CTRL_Login extends CI_Controller {
         parent::__construct();
 		$this->load->model('Login');
 		$this->load->model('Service');
+		$this->load->model('Slot');
 	}
 
 
@@ -40,12 +41,12 @@ class CTRL_Login extends CI_Controller {
 
 	private function load_acceuil () {
 		$services = $this->Service->get_all_services();
-		for ($i=0; $i < count($services); $i++) { 
-			var_dump($services[$i]);
-		}
+		$slots = $this->Slot->get_all ();
+
 		$data = array(
 			'content' => 'pages/acceuil',
-			'services' => $services
+			'services' => $services,
+			'slots' => $slots
 		);
 		$this->load->view('pages/template', $data);
 	}
