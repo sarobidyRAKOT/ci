@@ -1,4 +1,39 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GARAGE</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico"/>
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css"/>
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css"/>
+    <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css"/>
+    <link rel="stylesheet" href="assets/css/demo.css"/>
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
+
+    <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css"/>
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="assets/js/config.js"></script>
+</head>
+<body>
+
 <!-- Layout wrapper -->
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
@@ -31,7 +66,7 @@
 				</li>
 
 				<!-- Rendez-vous -->
-				<li class="menu-item>">
+				<li class="menu-item">
 					<a href="category" class="menu-link">
 						<i class="menu-icon tf-icons bx bx-category"></i>
 						<div data-i18n="Categories">Rendez-vous</div>
@@ -41,7 +76,7 @@
 				<!-- Autres -->
 				<li class="menu-item active">
 					<a href="ingredient" class="menu-link">
-						<i class="menu-icon tf-icons bx bx-dish"></i>
+						<i class="menu-icon tf-icons bx bx-book"></i>
 						<div data-i18n="Ingredients">Devises</div>
 					</a>
 				</li>
@@ -131,7 +166,25 @@
                                 </div>
                                 <div class="card-body">
                                     <form method="" action="">
-                                        <input type="hidden" name="idService" value="">
+                                        <input type="hidden" name="idDevise" value="">
+										<div class="mb-3">
+                                            <label for="Client" class="form-label">Choisir Client</label>
+											<select name="" id="Client" class="form-select" required>
+												<option>client 1</option>
+												<option>client 2</option>
+											</select>
+										</div>
+										<div class="mb-3">
+                                            <label for="Service" class="form-label">Choisir Service</label>
+											<select name="" id="Service" class="form-select" required>
+												<option>service 1</option>
+												<option>service 2</option>
+											</select>
+										</div>
+										<div class="mb-3">
+                                            <label class="form-label" for="datePaiemnt">Date de paiement</label>
+                                            <input value="" name="" type="date" class="form-control" id="datePaiemnt" required/>
+                                        </div>
                                         
                                         <button type="submit" class="btn btn-success">Ajouter</button>
                                     </form>
@@ -148,4 +201,26 @@
     </div>
 </div>
 <!-- / Layout wrapper -->
+
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+<script src="assets/vendor/libs/jquery/jquery.js"></script>
+<script src="assets/vendor/libs/popper/popper.js"></script>
+<script src="assets/vendor/js/bootstrap.js"></script>
+<script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+<script src="assets/vendor/js/menu.js"></script>
+<!-- endbuild -->
+
+<!-- Vendors JS -->
+<script src="assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+<!-- Main JS -->
+<script src="assets/js/main.js"></script>
+
+<!-- Page JS -->
+<script src="assets/js/dashboards-analytics.js"></script>
+
+</body>
+</html>
 
