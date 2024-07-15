@@ -10,31 +10,30 @@ class CTRL_Login extends CI_Controller {
 
 
 	public function connect_client () {
-		$matricule = $this->input->post("");
-		$type = $this->input->post("");
+		$matricule = $this->input->post("matricule");
+		$type = $this->input->post("type");
 
-		$resp = $this->Login->checkloginUser($matricule, $type);
-
-		var_dump($resp);
+		$id_client = $this->Login->checkloginUser($matricule, $type);
+		$this->session->set_userdata('client_id', $id_client);
 	}
 
 	public function insert_client () {
 		$matricule = $this->input->post("matricule");
 		$type = $this->input->post("type");
 		$email = $this->input->post("email");
-
-		$resp = $this->Login->inscription($email, $matricule, $type);
-
-		if ($resp) {
-			var_dump($resp);
-		} else {
+		try {
+			$id_client = $this->Login->inscription($email, $matricule, $type);
+			$this->session->set_userdata('client_id', $id_client);
+			
+		} catch (Exception $e) {
 			$data = array(
 				'content' => 'pages/insertion_client',
 				'error' => true,
-				'message' => 'insertion invalide'
+				'message' => $e->getMessage()
 			);
 			$this->load->view('index', $data);
 		}
+
 	}
 }
 

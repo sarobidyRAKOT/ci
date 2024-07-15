@@ -17,7 +17,7 @@
                     <center><h4 class="mb-2">Bienvenue dans le garage </h4></center>
                     <center><p class="mb-4">S'inscrire</p></center>
 					
-                    <form id="formAuthentication" class="mb-3" action="<?php echo base_url("CTRL_login/insert_client") ?>" method="post">
+                    <form id="formAuthentication" class="mb-3" action="<?php echo base_url("inserstion_client") ?>" method="post">
 						<!-- Raha ohatra ka diso ny mot de passe -->
                         <?php if ($error) { ?>
 							<div class="alert alert-danger alert-dismissible">
@@ -46,7 +46,7 @@
 						<a href="" class="btn btn-link" >
 							Se connecter en tant qu'Admin
 						</a>
-						<a href="<?php echo site_url("welcome/se_connecter"); ?>" class="btn btn-link">
+						<a href="<?php echo site_url("se_connecter"); ?>" class="btn btn-link">
 							Se connecter
 						</a>
 					</div>

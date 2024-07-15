@@ -50,9 +50,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'welcome/index';
-// $route['caisses'] = 'welcome/page_acceuil';
-// $route['produits'] = 'CTRL_achat/produits';
-// $route['liste_achats'] = 'CTRL_achat/liste_achat';
-// $route['panier'] = 'CTRL_achat/panier';
+$route['inserstion_client'] = 'CTRL_login/insert_client';
+$route['connect_client'] = 'CTRL_login/connect_client';
+$route['se_connecter'] = 'welcome/se_connecter';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

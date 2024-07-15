@@ -56,10 +56,10 @@ class Login extends CI_Model {
 				return $this->db->insert_id();
 			} else {
 				// En cas d'échec de l'insertion
-				return false; 
+				throw new Exception ("insertion invalide !!");
 			}
 		} else {
-			return false;
+			throw new Exception ("ce client existe deja!!");
 		}
 
     }

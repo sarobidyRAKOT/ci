@@ -18,7 +18,7 @@
 					<center><h4 class="mb-2">Bienvenue dans le garage </h4></center>
 					<center><p class="mb-4">Connectez-vous !</p></center>
 
-					<form id="formAuthentication" class="mb-3" action="" method="">
+					<form id="formAuthentication" class="mb-3" action="<?php echo base_url("connect_client") ?>" method="post">
 						<!-- Raha ohatra ka diso ny mot de passe -->
 						<div class="alert alert-danger alert-dismissible">
 							Une erreur est survenue !
@@ -27,11 +27,11 @@
 						<!-- fin -->
 						<div class="mb-3">
 							<label class="form-label">Matricule</label>
-							<input value="2512" type="number" class="form-control" name="" placeholder="Saisissez votre numero de voiture" autofocus required />
+							<input value="2512" type="text" class="form-control" name="matricule" placeholder="Saisissez votre numero de voiture" autofocus required />
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Type de voiture</label>
-							<input value="4x4" type="text" class="form-control" name="" placeholder="Saisissez le type de voiture" autofocus required />
+							<input value="4x4" type="text" class="form-control" name="type" placeholder="Saisissez le type de voiture" autofocus required />
 						</div
 						<div class="mb-3">
 							<button class="btn btn-primary d-grid w-100" type="submit">Se connecter</button>
