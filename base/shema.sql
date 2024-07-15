@@ -17,7 +17,7 @@ create table admin (
 create table service (
     id_service int primary key auto_increment,
     nom_service text NOT NULL,
-    durre int NOT NULL,
+    durre TIME NOT NULL,
     prix_service int NOT NULL
 );
 
@@ -27,8 +27,8 @@ create table slot (
 );
 
 create table ouverture (
-    ouverture int NOT NULL,
-    fermeture int NOT NULL
+    ouverture TIME NOT NULL,
+    fermeture TIMe NOT NULL
 );
 
 create table rdv (
@@ -36,7 +36,8 @@ create table rdv (
     id_client int NOT NULL,
     id_slot int NOT NULL,
     id_service int NOT NULL,
-    date_rdv DateTime,
+    date_rdv_debut DateTime,
+    date_rdv_fin DateTime,
     foreign key (id_client) references client(id_client),
     foreign key (id_slot) references slot(id_slot),
     foreign key (id_service) references service(id_service)
@@ -46,7 +47,7 @@ create table devise (
     id_devise int primary key auto_increment,
     id_client int NOT NULL,
     id_service int NOT NULL,
-    date_paymant int,
+    date_paymant Date,
     foreign key (id_client) references client(id_client),
     foreign key (id_service) references service(id_service)
 );
