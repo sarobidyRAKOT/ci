@@ -1,47 +1,35 @@
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">TD - SI-IHM - ETU002491</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a class="nav-link" href="<?php echo base_url('caisses') ?>">Caisses</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('produits') ?>">Produits</a></li>
-				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('panier') ?>">Panier</a></li>
-				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('liste_achats') ?>">Achats</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GARAGE</title>
 
-<!-- content -->
-<!-- <div class="container">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico"/>
 
-    <div class="row">
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css"/>
 
-        <div class="col-lg-3">
-            <h1 class="my-4">Caisse n°X</h1>
-            <div class="list-group">
-                <a href="#" class="list-group-item">Menu 1</a>
-                <a href="#" class="list-group-item">Menu 2</a>
-                <a href="#" class="list-group-item">Menu 3</a>
-            </div>
-        </div>
-        /.col-lg-3
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css"/>
+    <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css"/>
+    <link rel="stylesheet" href="assets/css/demo.css"/>
 
-        <div class="col-lg-9">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1> content </h1>
-                </div>
-            </div>
-            /.row
-        </div>
-        /.col-lg-9
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
 
-    </div>
-    /.row
-</div> -->
+    <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css"/>
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Helpers -->
+    <script src="assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="assets/js/config.js"></script>
+</head>
+<body>
