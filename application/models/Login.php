@@ -20,7 +20,7 @@ class Login extends CI_Model {
             return $query->row();
         } else {
             // Si aucun résultat n'est trouvé, retourne null
-            return null;
+            throw new Exception ("Verifier les informations !!");
         }
     }
 
@@ -34,7 +34,7 @@ class Login extends CI_Model {
             return $query->row();
         } else {
             // Si aucun résultat n'est trouvé, retourne null
-            return null;
+            throw new Exception ("impo");
         }
     }
 

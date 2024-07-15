@@ -14,10 +14,19 @@ class CTRL_Login extends CI_Controller {
 	public function connect_client () {
 		$matricule = $this->input->post("matricule");
 		$type = $this->input->post("type");
+		try {
+			$id_client = $this->Login->checkloginUser($matricule, $type);
+			$this->session->set_userdata('client_id', $id_client);
+			$this->load_acceuil();
+		} catch (Exception $e) {
+			$data = array(
+				'content' => 'pages/connect_client',
+				'error' => true,
+				'message' => $e->getMessage()
+			);
+			$this->load->view('index', $data);
+		}
 
-		$id_client = $this->Login->checkloginUser($matricule, $type);
-		$this->session->set_userdata('client_id', $id_client);
-		$this->load_acceuil();
 	}
 
 	public function insert_client () {
