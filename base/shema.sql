@@ -25,6 +25,12 @@ create table service_sup (
     foreign key (id_service) references service(id_service)
 );
 
+CREATE VIEW service_non_sup AS
+SELECT s.id_service, s.nom_service, s.durre
+FROM service s
+LEFT JOIN service_sup ss ON s.id_service = ss.id_service
+WHERE ss.id_service IS NULL;
+
 create table slot (
     id_slot int primary key auto_increment,
     nom_slot CHAR
