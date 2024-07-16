@@ -1,5 +1,17 @@
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
+
+<script>
+	// Fonction pour afficher une alerte SweetAlert
+	function showAlert() {
+		swal.fire({
+			title: 'Succès!',
+			text: 'Votre opération a été réalisée avec succès.',
+			icon: 'success',
+			confirmButtonText: 'Ok'
+		});
+	}
+</script>
 <script src="assets/vendor/libs/jquery/jquery.js"></script>
 <script src="assets/vendor/libs/popper/popper.js"></script>
 <script src="assets/vendor/js/bootstrap.js"></script>
