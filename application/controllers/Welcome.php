@@ -23,7 +23,13 @@ class Welcome extends CI_Controller {
 		);
 		$this->load->view('index', $data);
 	}
-
+	public function se_connecter_admin () {
+		$data = array(
+			'content' => 'pages/login_admin',
+			'error' => false
+		);
+		$this->load->view('index', $data);
+	}
 }
 
 ?>

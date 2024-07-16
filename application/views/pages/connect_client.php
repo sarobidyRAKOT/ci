@@ -20,14 +20,16 @@
 
 					<form id="formAuthentication" class="mb-3" action="<?php echo base_url("connect_client") ?>" method="post">
 						<!-- Raha ohatra ka diso ny mot de passe -->
-						<div class="alert alert-danger alert-dismissible">
-							Une erreur est survenue !
-							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-						</div>
+						<?php if ($error) { ?>
+							<div class="alert alert-danger alert-dismissible">
+								<?php echo $message ?>
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+						<?php } ?>
 						<!-- fin -->
 						<div class="mb-3">
 							<label class="form-label">Matricule</label>
-							<input value="2512" type="text" class="form-control" name="matricule" placeholder="Saisissez votre numero de voiture" autofocus required />
+							<input value="2512 TBH" type="text" class="form-control" name="matricule" placeholder="Saisissez votre numero de voiture" autofocus required />
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Type de voiture</label>
