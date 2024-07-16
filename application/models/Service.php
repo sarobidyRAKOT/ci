@@ -27,7 +27,7 @@ class Service extends CI_Model {
     }
 
     public function get_all_services() {
-		$query = $this->db->get('service');
+		$query = $this->db->get('service_non_sup');
 		$result = $query->result();
 	
 		// Initialiser un tableau pour stocker les résultats
