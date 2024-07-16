@@ -45,15 +45,23 @@ class Service extends CI_Model {
 		return $services;
     }
 
-    public function update_service($id_service, $nom_service, $durre) {
+    public function update_service($id_service, $nom_service, $durre, $prix, $date) {
         $data = array(
             'nom_service' => $nom_service,
             'durre' => $durre,
         );
         $this->db->where('id_service', $id_service);
-        return $this->db->update('service', $data);
-    }
-
+        $this->db->update('service', $data);
+    
+        $data_montant = array(
+            'id_service' => $id_service,
+            'montant' => $prix,
+            'date_service' => $date,
+        );
+        $this->db->insert('service_montant', $data_montant);
+    
+        return true;
+    }    
 
     public function delete_service($id_service) {
         $this->db->insert('service_sup', $id_service);
