@@ -69,6 +69,8 @@ class CTRL_Login extends CI_Controller {
 
 		$data = array(
 			'content' => 'pages/acceuil',
+			'acceuil' => 'active',
+
 			'services' => $services
 		);
 		$this->load->view('pages/template', $data);

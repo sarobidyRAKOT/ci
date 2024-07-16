@@ -6,13 +6,32 @@ class Devise extends CI_Model {
     public function __construct() {
         parent::__construct();
         // Chargement de la base de données dans le constructeur
-        $this->load->database();
     }
 
     public function get_all_devises() {
         $query = $this->db->get('devise');
         return $query->result();
     }
+
+	public function get_allDevise_client ($id_client) {
+
+        $this->db->where('id_client', $id_client);
+        $query = $this->db->get('devise');
+        $result = $query->result();
+		
+		$devises = []; //cons tableau
+		foreach ($result as $row) {
+			$devises[] = [
+				'id_devise' => $row->id_devise,
+				'id_client' => $row->id_client,
+				'id_service' => $row->id_service,
+				'id_rdv' => $row->id_rdv,
+				'prix_service' => $row->prix_service,
+				'date_paymant' => $row->date_paymant
+			];
+		}
+		return $devises;
+	}
 
     public function check_date($id_devise, $date) {
         // Convertir $date en objet DateTime si ce n'est pas déjà le cas
