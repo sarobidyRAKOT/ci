@@ -20,10 +20,10 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
 
-    <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css"/>
-
     <!-- Page CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+		<link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css">
 
     <!-- Helpers -->
     <script src="assets/vendor/js/helpers.js"></script>
@@ -36,9 +36,11 @@
 	
 	
 	<script src="assets/js/demo-to-codepen.js"></script>
+
+	<script src="assets/vendor/libs/apex-charts/apexcharts.js"></script>
 	
 	
-	  <script>
+	<script>
 	
 	  document.addEventListener('DOMContentLoaded', function() {
 		var calendarEl = document.getElementById('calendar');
@@ -54,6 +56,37 @@
 		calendar.render();
 	  });
 	
+	</script>
+
+	<script>
+		var options = {
+				chart: {
+						type: 'line'
+				},
+				series: [{
+						name: 'Payé',
+						data: [30, 40, 35, 50, 49, 60, 70, 91]
+				}, {
+						name: 'Non Payé',
+						data: [20, 30, 25, 40, 39, 50, 60, 81]
+				}],
+				xaxis: {
+						type: 'datetime',
+						categories: ['2023-01-01', '2023-02-01', '2023-03-01', '2023-04-01', '2023-05-01', '2023-06-01', '2023-07-01', '2023-08-01']
+				},
+				yaxis: {
+						title: {
+								text: 'Montant'
+						}
+				},
+				title: {
+						text: 'Montants Payés et Non Payés',
+						align: 'left'
+				}
+		}
+
+		var chart = new ApexCharts(document.querySelector("#chart"), options);
+		chart.render();
 	</script>
 </head>
 <body>
