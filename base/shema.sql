@@ -20,6 +20,13 @@ create table service (
     durre TIME NOT NULL
 );
 
+create table service_montant(
+    id_service int NOT  NULL,
+    montant int,
+    date_service date,
+    foreign key (id_service) references service(id_service)
+);
+
 create table service_sup (
     id_service int,
     foreign key (id_service) references service(id_service)
@@ -69,5 +76,5 @@ create table devise (
     foreign key (id_client) references client(id_client),
     foreign key (id_service) references service(id_service),
     foreign key (id_type_voiture) references type_voiture(id_type_voiture),
-    foreign key (id_rdv) references rdv(id_rdv)
+    foreign key (id_rdv) references rdv(id_rdv),
 );

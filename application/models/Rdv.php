@@ -51,13 +51,17 @@ class Rdv extends CI_Model {
 				/** si l'insertion de rdv est reussi ... */
 				// Insérer une entrée dans la table devise avec date_paymant à null
 				$service = $this->Service->get_service_by_id($id_service);
+                $client = $this->Client->get_ById($id_client);
+                $montant = $this=>Service->get_montant($id_service);
 				$data_devise = array(
 					'id_client' => $id_client,
+                    'id_type_voiture' => $client['type_voiture'],
 					'id_service' => $id_service,
 					'id_rdv' => $id_rdv,
-					'prix_service' => $service->prix_service,
+                    'montant' => $montant,
 					'date_paymant' => null
 				);
+        
 				$this->db->insert('devise', $data_devise);
 
 				// return array('id_slot' => $slot->id_slot, 'nom_slot' => $slot->nom_slot);
