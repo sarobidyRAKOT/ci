@@ -68,4 +68,19 @@ class Service extends CI_Model {
         $query = $this->db->get('slot');
         return $query->result();
     }
+
+    public function get_montant($id_service) {
+        $this->db->select('montant');
+        $this->db->from('service_montant');
+        $this->db->where('id_service', $id_service);
+        $this->db->order_by('date_service', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->row()->montant;
+        } else {
+            return null; // ou une valeur par défaut si nécessaire
+        }
+    }
 }
