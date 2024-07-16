@@ -33,7 +33,7 @@
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Type de voiture</label>
-							<input value="4x4" type="text" class="form-control" name="type" placeholder="Saisissez le type de voiture" autofocus required />
+							<input value="legère" type="text" class="form-control" name="type" placeholder="Saisissez le type de voiture" autofocus required />
 						</div
 						<div class="mb-3">
 							<button class="btn btn-primary d-grid w-100" type="submit">Se connecter</button>

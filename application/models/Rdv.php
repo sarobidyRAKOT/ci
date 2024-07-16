@@ -7,6 +7,7 @@ class Rdv extends CI_Model {
         parent::__construct();
         // Chargement de la base de données dans le constructeur
 		$this->load->model('Service');
+		$this->load->model('Client');
     }
 
     public function check_rdv ($id_client, $durre, $id_service) {
@@ -44,16 +45,14 @@ class Rdv extends CI_Model {
 
 			$this->db->insert('rdv', $data_rdv);
 			$id_rdv = $this->db->insert_id();
-			// var_dump($service);
-			var_dump($id_rdv);
 			// ***** Vérifier si l'insertion a réussi
 			if ($this->db->affected_rows() > 0) {
 				/** si l'insertion de rdv est reussi ... */
 				// Insérer une entrée dans la table devise avec date_paymant à null
 				$service = $this->Service->get_service_by_id($id_service);
                 $client = $this->Client->get_ById($id_client);
-                $montant = $this=>Service->get_montant($id_service);
-				$data_devise = array(
+                $montant = $this->Service->get_montant($id_service);
+				$data_devise = array(	
 					'id_client' => $id_client,
                     'type_voiture' => $client['type_voiture'],
 					'id_service' => $id_service,
@@ -61,9 +60,8 @@ class Rdv extends CI_Model {
                     'montant' => $montant,
 					'date_paymant' => null
 				);
-        
+				
 				$this->db->insert('devise', $data_devise);
-
 				// return array('id_slot' => $slot->id_slot, 'nom_slot' => $slot->nom_slot);
 				return true;
 			} else { throw new Exception ("Rendez-vous non inserer ..."); }

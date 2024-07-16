@@ -10,7 +10,7 @@
 			<h5 class="card-header">Liste des services</h5>
 			<div class="card-body">
 				<div class="mb-3">
-					<a href="" type="button" class="btn btn-success">Ajouter</a>
+					<a href="<?php echo base_url("page_ajouter_service") ?>" type="button" class="btn btn-success">Ajouter</a>
 				</div>
 			</div>
 			<div class="table-responsive text-nowrap" style="overflow-x: visible;">
@@ -32,7 +32,7 @@
 							<td><strong><?php echo $service["id_service"] ?></strong></td>
 							<td><?php echo $service["nom_service"] ?></td>
 							<td><?php echo $service["durre"] ?></td>
-							<td><?php echo $service["prix_service"] ?> ariary</td>
+							<td><?php echo $service["montant"] ?> ariary</td>
 							<td>
 								<div class="dropdown">
 									<button type="button" class="btn p-0 dropdown-toggle hide-arrow"
@@ -40,11 +40,11 @@
 										<i class="bx bx-dots-vertical-rounded"></i>
 									</button>
 									<div class="dropdown-menu">
-										<a class="dropdown-item" href="<?php echo base_url("?id_service=".$service["id_service"]); ?>">
+										<a class="dropdown-item" href="<?php echo base_url("modifier_service?id_service=".$service["id_service"]); ?>">
 											<i class="bx bx-edit-alt me-1"></i>
 											Modifier
 										</a>
-										<a class="dropdown-item" href="<?php echo base_url("?id_service=".$service["id_service"]); ?>">
+										<a class="dropdown-item" href="<?php echo base_url("supprimer_service?id_service=".$service["id_service"]); ?>">
 											<i class="bx bx-trash me-1"></i>
 											Supprimer
 										</a>

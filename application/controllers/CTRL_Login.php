@@ -66,7 +66,7 @@ class CTRL_Login extends CI_Controller {
 
 	public function load_acceuil () {
 		$services = $this->Service->get_all_services();
-
+		
 		$data = array(
 			'content' => 'pages/acceuil',
 			'acceuil' => 'active',
@@ -76,13 +76,25 @@ class CTRL_Login extends CI_Controller {
 		$this->load->view('pages/template', $data);
 	}
 
-	private function load_acceuil_admin () {
+	public function load_acceuil_admin () {
 		$services = $this->Service->get_all_services();
-		if (empty($services)) { $services = null; }
+		$donnee = [];
+		foreach ($services as $service) {
+			$montant = $this->Service->get_montant($service["id_service"]);
+			$donnee[] = array (
+				'id_service' => $service["id_service"],
+				'nom_service' => $service["nom_service"],
+				'durre' => $service["durre"],
+				'montant' => $montant
+			);
+		}
+
+		if (empty($donnee)) { $donnee = null; }
 
 		$data = array(
 			'content' => 'pages/admin/acceuil',
-			'services' => $services
+			'acceuil' => 'active',
+			'services' => $donnee
 		);
 		$this->load->view('pages/admin/template', $data);
 	}

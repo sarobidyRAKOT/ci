@@ -12,11 +12,12 @@ class CTRL_rdv extends CI_Controller {
 
 	public function prendre_rdv () {
 		$client_id = $this->session->userdata('client_id');
-		$client_id = $client_id->id_client;
+		if (is_object($client_id)) {
+			$client_id = $client_id->id_client; // Accéder à la propriété 'id_client'
+		}
 		$id_slot = $this->input->post("id_slot");
 		$id_service = $this->input->post("id_service");
 		$dateTime = $this->input->post("dateTime");
-
 
 		try {
 			$valid_rdv = $this->Rdv->check_rdv ($client_id, $dateTime, $id_service);

@@ -18,7 +18,7 @@
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>Nom du Client</th>
+							<th>matricule</th>
 							<th>Nom du service</th>
 							<th>Prix service</th>
 							<th>Date de paiement</th>
@@ -29,7 +29,7 @@
 						<?php foreach ($info_devises as $info_devise) { ?>
 						<tr>
 							<td><strong><?php echo $info_devise["id_devise"] ?></strong></td>
-							<td><?php echo $info_devise["e_mail"] ?></td>
+							<td><?php echo $info_devise["matricule"] ?></td>
 							<td><?php echo $info_devise["nom_service"] ?></td>
 							<td><?php echo $info_devise["prix_service"] ?> ariary</td>
 							<td>

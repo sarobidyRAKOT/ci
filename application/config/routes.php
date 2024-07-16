@@ -50,10 +50,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'welcome/index';
+
 $route['inserstion_client'] = 'CTRL_login/insert_client';
 $route['connect_client'] = 'CTRL_login/connect_client';
 $route['connect_admin'] = 'CTRL_login/connect_admin';
 $route['acceuil_client'] = 'CTRL_login/load_acceuil';
+$route['acceuil_admin'] = 'CTRL_login/load_acceuil_admin';
+
+
 $route['se_connecter'] = 'welcome/se_connecter';
 $route['se_connecter_admin'] = 'welcome/se_connecter_admin';
 
@@ -61,6 +65,23 @@ $route['devise'] = 'CTRL_devise/devise';
 $route['format_pdf'] = 'CTRL_devise/generate_pdf';
 
 $route['prendre_rdv'] = 'CTRL_rdv/prendre_rdv';
+
+$route['ajouter_service'] = 'CTRL_service/ajouter_service';
+$route['page_ajouter_service'] = 'CTRL_service/page_ajouter_service';
+$route['modifier_service'] = 'CTRL_service/modifier_service';
+$route['supprimer_service'] = 'CTRL_service/supprimer_service';
+$route['validation_modification'] = 'CTRL_service/validation_modification';
+
+
+$route['import_export'] = 'CTRL_import_export/import_export';
+$route['supprimer'] = 'CTRL_supprimer/page_sup';
+$route['config_date'] = 'CTRL_configDate/page_configRef';
+$route['insert_ref'] = 'CTRL_configDate/insert_ref';
+$route['dashboard'] = 'CTRL_dashboard/page_dashboard';
+
+$route['utilisation_slot'] = 'CTRL_utilisation_slot/page_utilisation_slot';
+$route['vers_filtre_slot'] = 'CTRL_utilisation_slot/vers_filtre_slot';
+
 
 $route['deconnecter'] = 'CTRL_deconnection/deconnecter';
 

@@ -15,8 +15,11 @@ class CTRL_devise extends CI_Controller {
 
 	public function devise () {
 
-		$client_id = $this->session->userdata('client_id')->id_client;
+		$client_id = $this->session->userdata('client_id');
 
+		if (is_object($client_id)) {
+			$client_id = $client_id->id_client; // Accéder à la propriété 'id_client'
+		}
 		$client = $this->Client->get_ById ($client_id);
 
 		$info_devises = array();
@@ -24,11 +27,13 @@ class CTRL_devise extends CI_Controller {
 		foreach ($devises as $devise) {
 			$id_service = $devise['id_service'];
 			$service = $this->Service->get_service_by_id($id_service);
+			$montant = $this->Service->get_montant($id_service);
+			
 			$info = array (
 				'id_devise' => $devise["id_devise"],
-				'e_mail' => $client['e_mail'],
+				'matricule' => $client['matricule'],
 				'nom_service' => $service->nom_service,
-				'prix_service' => $service->prix_service,
+				'prix_service' => $montant,
 				'payement' => $devise["date_paymant"]
 			);
 			$info_devises[] = $info;
