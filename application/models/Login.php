@@ -18,6 +18,7 @@ class Login extends CI_Model {
         if ($query->num_rows() == 1) {
             // Retourne le premier résultat sous forme d'objet
             return $query->row();
+
         } else {
             // Si aucun résultat n'est trouvé, retourne null
             throw new Exception ("Verifier les informations !!");
@@ -34,7 +35,7 @@ class Login extends CI_Model {
             return $query->row();
         } else {
             // Si aucun résultat n'est trouvé, retourne null
-            throw new Exception ("impo");
+            throw new Exception ("verifiez vos informatins !!");
         }
     }
 

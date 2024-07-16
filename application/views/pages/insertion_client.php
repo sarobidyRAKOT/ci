@@ -28,22 +28,22 @@
 						<!-- fin -->
 						<div class="mb-3">
 							<label class="form-label">Email</label>
-							<input value="moi@info.com" type="email" class="form-control" name="email" placeholder="Saisissez le Email" autofocus required/>
+							<input value="lui@info.com" type="email" class="form-control" name="email" placeholder="Saisissez le Email" autofocus required/>
 						</div>
                         <div class="mb-3">
 							<label class="form-label">Matricule</label>
-                            <input value="2512" type="text" class="form-control" name="matricule" placeholder="Saisissez votre numero de voiture" autofocus required />
+                            <input value="2512 TBH" type="text" class="form-control" name="matricule" placeholder="Saisissez votre numero de voiture" autofocus required />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Type de voiture</label>
-                            <input value="4x4" type="text" class="form-control" name="type" placeholder="Saisissez le type de voiture" autofocus required />
+                            <input value="legère" type="text" class="form-control" name="type" placeholder="Saisissez le type de voiture" autofocus required />
 						</div>
 						<div class="mb-3">
 							<button class="btn btn-primary d-grid w-100" type="submit">S'inscrire</button>
 						</div>
                     </form>
 					<div class="mb-3">
-						<a href="" class="btn btn-link" >
+						<a href="<?php echo site_url("se_connecter_admin"); ?>" class="btn btn-link" >
 							Se connecter en tant qu'Admin
 						</a>
 						<a href="<?php echo site_url("se_connecter"); ?>" class="btn btn-link">

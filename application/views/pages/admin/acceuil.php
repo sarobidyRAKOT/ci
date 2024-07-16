@@ -1,0 +1,1 @@
+<p>bonjour admin</p>

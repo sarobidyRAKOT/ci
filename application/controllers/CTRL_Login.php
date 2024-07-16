@@ -7,7 +7,6 @@ class CTRL_Login extends CI_Controller {
         parent::__construct();
 		$this->load->model('Login');
 		$this->load->model('Service');
-		$this->load->model('Slot');
 	}
 
 
@@ -21,6 +20,24 @@ class CTRL_Login extends CI_Controller {
 		} catch (Exception $e) {
 			$data = array(
 				'content' => 'pages/connect_client',
+				'error' => true,
+				'message' => $e->getMessage()
+			);
+			$this->load->view('index', $data);
+		}
+
+	}
+
+	public function connect_admin () {
+		$email = $this->input->post("email");
+		$mdp = $this->input->post("mdp");
+		try {
+			$id_client = $this->Login->checkloginAdmin ($email, $mdp);
+			$this->session->set_userdata('admin_id', $id_client);
+			$this->load_acceuil_admin ();
+		} catch (Exception $e) {
+			$data = array(
+				'content' => 'pages/login_admin',
 				'error' => true,
 				'message' => $e->getMessage()
 			);
@@ -45,17 +62,24 @@ class CTRL_Login extends CI_Controller {
 			);
 			$this->load->view('index', $data);
 		}
-
 	}
 
-	private function load_acceuil () {
+	public function load_acceuil () {
+		$services = $this->Service->get_all_services();
+
+		$data = array(
+			'content' => 'pages/acceuil',
+			'services' => $services
+		);
+		$this->load->view('pages/template', $data);
+	}
+
+	private function load_acceuil_admin () {
 		$services = $this->Service->get_all_services();
 		$slots = $this->Slot->get_all ();
 
 		$data = array(
-			'content' => 'pages/acceuil',
-			'services' => $services,
-			'slots' => $slots
+			'content' => 'pages/admin/acceuil'
 		);
 		$this->load->view('pages/template', $data);
 	}

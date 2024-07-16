@@ -47,7 +47,10 @@ create table devise (
     id_devise int primary key auto_increment,
     id_client int NOT NULL,
     id_service int NOT NULL,
+	id_rdv int NOT NULL,
+	prix_service int NOT NULL,
     date_paymant Date,
     foreign key (id_client) references client(id_client),
-    foreign key (id_service) references service(id_service)
+    foreign key (id_service) references service(id_service),
+    foreign key (id_rdv) references rdv (id_rdv)
 );

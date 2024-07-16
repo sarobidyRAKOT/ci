@@ -52,6 +52,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome/index';
 $route['inserstion_client'] = 'CTRL_login/insert_client';
 $route['connect_client'] = 'CTRL_login/connect_client';
+$route['connect_admin'] = 'CTRL_login/connect_admin';
+$route['acceuil_client'] = 'CTRL_login/load_acceuil';
 $route['se_connecter'] = 'welcome/se_connecter';
+$route['se_connecter_admin'] = 'welcome/se_connecter_admin';
+
+$route['prendre_rdv'] = 'CTRL_rdv/prendre_rdv';
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

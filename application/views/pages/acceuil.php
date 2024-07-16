@@ -33,7 +33,7 @@
 
                 <!-- Rendez-vous -->
                 <li class="menu-item active">
-                    <a href="category" class="menu-link">
+                    <a href="<?php echo base_url ("acceuil_client") ?>" class="menu-link">
                         <i class="menu-icon tf-icons bx bx-category"></i>
                         <div>Rendez-vous</div>
                     </a>
@@ -115,18 +115,11 @@
                                     <h5 class="mb-0">Donner rendez-vous</h5>
                                 </div>
                                 <div class="card-body">
-                                    <form method="post" action="<?php echo base_url("") ?>">
-                                        <div class="mb-3">
-                                            <label for="slot" class="form-label">SLOT</label>
-                                            <select name="_d_slot" id="slot" class="form-select" required>
-												<?php foreach ($slots as $slot) { ?>
-												<option value="<?php echo $slot["id_slot"] ?>"><?php echo $slot["nom_slot"] ?></option>
-												<?php } ?>
-                                            </select>
-                                        </div>
+                                    <form method="post" action="<?php echo base_url("prendre_rdv") ?>">
+	
                                         <div class="mb-3">
                                             <label for="" class="form-label">Services</label>
-                                            <select name="id_service" id="" class="form-select" required>
+                                            <select name="id_service" id="" class="form-select">
 												<?php for ($i=0; $i < count ($services); $i++) { ?>
 												<option value="<?php echo $services[$i]["id_service"] ?>"><?php echo $services[$i]["nom_service"] ?></option>
 												<?php } ?>
@@ -134,7 +127,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="date">Date</label>
-                                            <input value="" name="" type="datetime-local" class="form-control" id="date" required />
+                                            <input name="dateTime" type="datetime-local" class="form-control" id="date" required />
                                         </div>
                                         <center><button type="submit" class="btn btn-success">Valider</button></center>
                                     </form>
