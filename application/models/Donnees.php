@@ -131,4 +131,53 @@ class Donnees extends CI_Model {
             return false;
         }
     }
+
+    public function insert_reference($reference_date) {
+        $data = array(
+            'reference' => $reference_date,
+        );
+        $this->db->insert('reference', $data);
+    
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function chiffre_affaire_date() {
+        $this->db->select_max('id_reference');
+        $query = $this->db->get('reference');
+        $max_id_reference = $query->row()->id_reference;
+    
+        // Récupérer la date correspondant à l'ID de référence maximum
+        $this->db->select('reference');
+        $this->db->where('id_reference', $max_id_reference);
+        $query = $this->db->get('reference');
+        $reference_date = $query->row()->reference;
+    
+        // Calculer le chiffre d'affaires payé jusqu'à la date limite
+        $this->db->select_sum('devise.montant');
+        $this->db->from('devise');
+        $this->db->join('rdv', 'devise.id_rdv = rdv.id_rdv');
+        $this->db->where('rdv.date_rdv_debut <=', $reference_date);
+        $this->db->where('devise.date_paymant IS NOT NULL');
+        $query_paye = $this->db->get();
+        $chiffre_affaire_paye = $query_paye->row()->montant;
+    
+        // Calculer le chiffre d'affaires non payé jusqu'à la date limite
+        $this->db->select_sum('devise.montant');
+        $this->db->from('devise');
+        $this->db->join('rdv', 'devise.id_rdv = rdv.id_rdv');
+        $this->db->where('rdv.date_rdv_debut <=', $reference_date);
+        $this->db->where('devise.date_paymant IS NULL');
+        $query_non_paye = $this->db->get();
+        $chiffre_affaire_non_paye = $query_non_paye->row()->montant;
+    
+        return array(
+            'date_reference' => $reference_date,
+            'chiffre_affaire_paye' => $chiffre_affaire_paye,
+            'chiffre_affaire_non_paye' => $chiffre_affaire_non_paye
+        );
+    }    
 }

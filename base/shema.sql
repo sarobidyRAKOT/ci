@@ -72,3 +72,8 @@ create table devise (
     foreign key (id_service) references service(id_service),
     foreign key (id_rdv) references rdv(id_rdv)
 );
+
+create table reference (
+    id_reference int primary key auto_increment,
+    reference date
+);
