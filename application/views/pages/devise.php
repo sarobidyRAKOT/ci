@@ -43,10 +43,9 @@
 										<i class="bx bx-dots-vertical-rounded"></i>
 									</button>
 									<div class="dropdown-menu">
-										<a class="dropdown-item"
-										href="#">
+										<a class="dropdown-item" href="<?php echo base_url("CTRL_devise/format_pdf?id_devise=".$info_devise["id_devise"]) ?>">
 											<i class="bx bx-edit-alt me-1"></i>
-											Modif date payement
+											Format PDF
 										</a>
 									</div>
 								</div>

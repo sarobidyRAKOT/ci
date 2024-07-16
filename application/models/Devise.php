@@ -6,6 +6,11 @@ class Devise extends CI_Model {
     public function __construct() {
         parent::__construct();
         // Chargement de la base de données dans le constructeur
+		$this->load->model('Rdv');
+		$this->load->model('Client');
+		$this->load->model('Service');
+		$this->load->model('Slot');
+
     }
 
     public function get_all_devises() {
@@ -31,6 +36,31 @@ class Devise extends CI_Model {
 			];
 		}
 		return $devises;
+	}
+
+	public function get_all_info_pdf ($id_devise) {
+		$this->db->where('id_devise', $id_devise);
+        $query = $this->db->get('devise');
+        $row = $query->row();
+		
+	
+		$rdv = $this->Rdv->get_rdv_by_id ($row->id_rdv);
+		$client = $this->Client->get_ById ($row->id_client);
+		$service = $this->Service->get_service_by_id ($row->id_service);
+		$slot = $this->Slot->get_byId ($rdv->id_slot);
+
+		$data = array (
+			'datedebut' => $rdv->date_rdv_debut,
+			'datefin' => $rdv->date_rdv_fin,
+
+			'description' => $service->nom_service,
+			'numVoiture' => $client["matricule"],
+			'slot' => $slot["nom_slot"],
+			'durre' => $service->durre,
+			'cout' => $service->prix_service
+		);
+
+		return $data;
 	}
 
     public function check_date($id_devise, $date) {
@@ -70,4 +100,7 @@ class Devise extends CI_Model {
             return false;
         }
     }
+
+	
+	
 }
