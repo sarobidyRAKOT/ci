@@ -8,6 +8,16 @@ class Service extends CI_Model {
         // Chargement de la base de données dans le constructeur
     }
 
+    public function insert_($nom_service, $durre) {
+        $data_service = array(
+            'nom_service' => $nom_service,
+            'durre' => $durre,
+        );
+        $this->db->insert('service', $data_service);
+
+        return true;
+    }
+
     public function insert_service($nom_service, $durre, $prix, $date) {
         $data_service = array(
             'nom_service' => $nom_service,
