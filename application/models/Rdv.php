@@ -55,7 +55,7 @@ class Rdv extends CI_Model {
                 $montant = $this=>Service->get_montant($id_service);
 				$data_devise = array(
 					'id_client' => $id_client,
-                    'id_type_voiture' => $client['type_voiture'],
+                    'type_voiture' => $client['type_voiture'],
 					'id_service' => $id_service,
 					'id_rdv' => $id_rdv,
                     'montant' => $montant,

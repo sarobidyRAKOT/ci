@@ -60,21 +60,15 @@ create table rdv (
     foreign key (id_service) references service(id_service)
 );
 
-create table type_voiture (
-    id_type_voiture int primary key auto_increment,
-    nom_type VARCHAR(100)
-);
-
 create table devise (
     id_devise int primary key auto_increment,
     id_client int NOT NULL,
-    id_type_voiture int NOT NULL,
+    type_voiture VARCHAR(100) NOT NULL,
     id_rdv int NOT NULL,
     id_service int NOT NULL,
     montant int NOT NULL,
     date_paymant Date,
     foreign key (id_client) references client(id_client),
     foreign key (id_service) references service(id_service),
-    foreign key (id_type_voiture) references type_voiture(id_type_voiture),
     foreign key (id_rdv) references rdv(id_rdv),
 );
