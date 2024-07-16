@@ -57,6 +57,8 @@ $route['acceuil_client'] = 'CTRL_login/load_acceuil';
 $route['se_connecter'] = 'welcome/se_connecter';
 $route['se_connecter_admin'] = 'welcome/se_connecter_admin';
 
+$route['devise'] = 'CTRL_devise/devise';
+
 $route['prendre_rdv'] = 'CTRL_rdv/prendre_rdv';
 
 
