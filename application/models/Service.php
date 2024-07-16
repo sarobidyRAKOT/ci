@@ -8,11 +8,10 @@ class Service extends CI_Model {
         // Chargement de la base de données dans le constructeur
     }
 
-    public function insert_service($nom_service, $durre, $prix_service) {
+    public function insert_service($nom_service, $durre) {
         $data = array(
             'nom_service' => $nom_service,
             'durre' => $durre,
-            'prix_service' => $prix_service
         );
         $this->db->insert('service', $data);
         if ($this->db->affected_rows() > 0) {
@@ -28,7 +27,7 @@ class Service extends CI_Model {
     }
 
     public function get_all_services() {
-		$query = $this->db->get('service');
+		$query = $this->db->get('service_non_sup');
 		$result = $query->result();
 	
 		// Initialiser un tableau pour stocker les résultats
@@ -40,20 +39,16 @@ class Service extends CI_Model {
 				'id_service' => $row->id_service,
 				'nom_service' => $row->nom_service,
 				'durre' => $row->durre,
-				'prix_service' => $row->prix_service
 			];
 		}
 	
 		return $services;
     }
 
-	
-
-    public function update_service($id_service, $nom_service, $durre, $prix_service) {
+    public function update_service($id_service, $nom_service, $durre) {
         $data = array(
             'nom_service' => $nom_service,
             'durre' => $durre,
-            'prix_service' => $prix_service
         );
         $this->db->where('id_service', $id_service);
         return $this->db->update('service', $data);
@@ -61,8 +56,12 @@ class Service extends CI_Model {
 
 
     public function delete_service($id_service) {
-        $this->db->where('id_service', $id_service);
-        return $this->db->delete('service');
+        $this->db->insert('service_sup', $id_service);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function get_all_slots() {
