@@ -1,4 +1,6 @@
-CREATE DATABASE IF NOT EXISTS garage;
+DROP DATABASE IF EXISTS garage;
+CREATE DATABASE garage;
+
 use garage;
 
 create table client (
