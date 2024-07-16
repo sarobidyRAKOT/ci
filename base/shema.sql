@@ -3,10 +3,10 @@ use garage;
 
 create table client (
     id_client int primary key auto_increment,
-    e_mail VARCHAR(100) NOT NULL,
+    e_mail VARCHAR(100),
     matricule VARCHAR(8) NOT NULL,
     type_voiture VARCHAR(100) NOT NULL
-);
+); 
 
 create table admin (
     id_admin int primary key,
@@ -17,8 +17,12 @@ create table admin (
 create table service (
     id_service int primary key auto_increment,
     nom_service text NOT NULL,
-    durre TIME NOT NULL,
-    prix_service int NOT NULL
+    durre TIME NOT NULL
+);
+
+create table service_sup (
+    id_service int,
+    foreign key (id_service) references service(id_service)
 );
 
 create table slot (
@@ -43,14 +47,21 @@ create table rdv (
     foreign key (id_service) references service(id_service)
 );
 
+create table type_voiture (
+    id_type_voiture int primary key auto_increment,
+    nom_type VARCHAR(100)
+);
+
 create table devise (
     id_devise int primary key auto_increment,
     id_client int NOT NULL,
+    id_type_voiture int NOT NULL,
+    id_rdv int NOT NULL,
     id_service int NOT NULL,
-	id_rdv int NOT NULL,
-	prix_service int NOT NULL,
+    montant int NOT NULL,
     date_paymant Date,
     foreign key (id_client) references client(id_client),
     foreign key (id_service) references service(id_service),
-    foreign key (id_rdv) references rdv (id_rdv)
+    foreign key (id_type_voiture) references type_voiture(id_type_voiture),
+    foreign key (id_rdv) references rdv(id_rdv)
 );
