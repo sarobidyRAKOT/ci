@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS garage;
-CREATE DATABASE garage;
+DROP DATABASE IF EXISTS db_infop16a_ETU002512;
+CREATE DATABASE db_infop16a_ETU002512;
 
-use garage;
+use db_infop16a_ETU002512;
 
 create table client (
     id_client int primary key auto_increment,
