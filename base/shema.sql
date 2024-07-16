@@ -70,5 +70,5 @@ create table devise (
     date_paymant Date,
     foreign key (id_client) references client(id_client),
     foreign key (id_service) references service(id_service),
-    foreign key (id_rdv) references rdv(id_rdv),
+    foreign key (id_rdv) references rdv(id_rdv)
 );
