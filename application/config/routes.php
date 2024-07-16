@@ -58,9 +58,13 @@ $route['se_connecter'] = 'welcome/se_connecter';
 $route['se_connecter_admin'] = 'welcome/se_connecter_admin';
 
 $route['devise'] = 'CTRL_devise/devise';
+$route['format_pdf'] = 'CTRL_devise/generate_pdf';
 
 $route['prendre_rdv'] = 'CTRL_rdv/prendre_rdv';
 
+$route['deconnecter'] = 'CTRL_deconnection/deconnecter';
 
+
+$route['pdf/genarate'] = 'PdfController/generatePdf';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

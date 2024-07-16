@@ -78,12 +78,13 @@ class CTRL_Login extends CI_Controller {
 
 	private function load_acceuil_admin () {
 		$services = $this->Service->get_all_services();
-		$slots = $this->Slot->get_all ();
+		if (empty($services)) { $services = null; }
 
 		$data = array(
-			'content' => 'pages/admin/acceuil'
+			'content' => 'pages/admin/acceuil',
+			'services' => $services
 		);
-		$this->load->view('pages/template', $data);
+		$this->load->view('pages/admin/template', $data);
 	}
 }
 
