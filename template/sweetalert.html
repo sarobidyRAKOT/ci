@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple SweetAlert</title>
+    <!-- Inclure SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Contenu de la page -->
+    <button onclick="showAlert()">Afficher l'alerte</button>
+
+    <script>
+        // Fonction pour afficher une alerte SweetAlert
+        function showAlert() {
+            swal.fire({
+                title: 'Succès!',
+                text: 'Votre opération a été réalisée avec succès.',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            });
+        }
+    </script>
+</body>
+</html>
