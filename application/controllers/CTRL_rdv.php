@@ -21,7 +21,6 @@ class CTRL_rdv extends CI_Controller {
 		$id_service = $this->input->post("id_service");
 		$dateTime = $this->input->post("dateTime");
 
-
 		try {
 			$valid_rdv = $this->Rdv->check_rdv ($client_id, $dateTime, $id_service);
 			// ---> valid rendez - vous
