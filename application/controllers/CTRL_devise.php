@@ -15,7 +15,10 @@ class CTRL_devise extends CI_Controller {
 
 	public function devise () {
 
-		$client_id = $this->session->userdata('client_id')->id_client;
+		$client_id = $this->session->userdata('client_id');
+		if (is_object($client_id)) {
+			$client_id = $client_id->id_client; // Accéder à la propriété 'id_client'
+		}
 
 		$client = $this->Client->get_ById ($client_id);
 
