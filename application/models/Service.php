@@ -8,18 +8,25 @@ class Service extends CI_Model {
         // Chargement de la base de données dans le constructeur
     }
 
-    public function insert_service($nom_service, $durre) {
-        $data = array(
+    public function insert_service($nom_service, $durre, $prix, $date) {
+        $data_service = array(
             'nom_service' => $nom_service,
             'durre' => $durre,
         );
-        $this->db->insert('service', $data);
-        if ($this->db->affected_rows() > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        $this->db->insert('service', $data_service);
+        
+        $id_service = $this->db->insert_id();
+        
+        $data_montant = array(
+            'id_service' => $id_service,
+            'montant' => $prix,
+            'date_service' => $date,
+        );
+        $this->db->insert('service_montant', $data_montant);
+        
+        return true;
     }
+    
 
     public function get_service_by_id($id_service) {
         $query = $this->db->get_where('service', array('id_service' => $id_service));
